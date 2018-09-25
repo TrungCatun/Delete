@@ -8,13 +8,21 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class DetailViewController: UIViewController {
+    @IBOutlet weak var outputTextField: UITextField!
+    var data: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        if data != nil{
+            outputTextField.text = data
+        }
     }
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        data = outputTextField.text
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
